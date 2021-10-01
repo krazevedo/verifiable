@@ -1,20 +1,21 @@
 /// <reference types="cypress" />
 
+import { email, password } from "../../fixtures/credentials";
+
 const faker = require("faker");
+
+function selectProvider(provider) {
+  cy.get("table").contains("div", provider).click();
+  cy.get("button.breadcrumb-i").eq(1).should("include.text", provider);
+}
 
 context("License", () => {
   beforeEach(() => {
-    cy.visit("/");
-
-    const email = Cypress.env("email");
-    const password = Cypress.env("password");
-
     cy.login(email, password);
   });
 
   it("edit a provider adding License", () => {
-    cy.get("table").contains("div", "Challenge").click();
-    cy.get("button.breadcrumb-i").eq(1).should("include.text", "Challenge");
+    selectProvider('Challenge')
     cy.get('[data-cy="addLicense"]').click();
     cy.get('[data-cy="state"]').click();
     cy.get('[data-cy="state-list"]').children().first().click();
@@ -31,8 +32,7 @@ context("License", () => {
   });
 
   it("edit a License", () => {
-    cy.get("table").contains("div", "Challenge").click();
-    cy.get("button.breadcrumb-i").eq(1).should("include.text", "Challenge");
+    selectProvider('Challenge')
     cy.get("table").contains("div", "Doctor of Osteopathy").click();
     cy.get("h2").should("have.text", "Doctor of Osteopathy");
     cy.get("div.comp-loader").should("not.exist");
@@ -45,8 +45,7 @@ context("License", () => {
   });
 
   it("remove a License", () => {
-    cy.get("table").contains("div", "Challenge").click();
-    cy.get("button.breadcrumb-i").eq(1).should("include.text", "Challenge");
+    selectProvider('Challenge')
     cy.get('[data-cy="license-overview"]').within(() => {
       cy.get('[data-cy="more"]').click();
     });

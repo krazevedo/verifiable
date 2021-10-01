@@ -1,14 +1,10 @@
 // <reference types="cypress" />
+import { email, password } from "../../fixtures/credentials";
 
 const faker = require("faker");
 
 context("Providers", () => {
   beforeEach(() => {
-    cy.visit("/");
-
-    const email = Cypress.env("email");
-    const password = Cypress.env("password");
-
     cy.login(email, password);
   });
 
@@ -40,6 +36,7 @@ context("Providers", () => {
   it("delete a provider", () => {
     cy.get('[name="search"]').eq(1).type("Challenge");
     cy.get("table").contains("div", "Challenge").click();
+    cy.get("button.breadcrumb-i").eq(1).should("include.text", "Challenge");
     cy.get('[data-cy="more"]').first().click();
     cy.get('[data-cy="removeProvider-d"]').click();
     cy.get('[data-cy="Yes, remove"]').click();

@@ -1,0 +1,27 @@
+version: '3.2'
+services:
+  # this container will run Cypress test using built-in Electron browser
+  e2e-electron:
+    image: "cypress/included:8.3.1"
+    volumes:
+      - ./cypress:/cypress
+      - ./cypress.json:/cypress.json
+
+  # this container will run Cypress test using Chrome browser
+  e2e-chrome:
+    image: "cypress/included:8.3.1"
+    # container_name: cypress
+    # "cypress/included" images have entrypoint set to globally installed cypress
+    # so the command can simply add any arguments
+    command: "--browser chrome --config video=false"
+    volumes:
+      - ./cypress:/cypress
+      - ./cypress.json:/cypress.json
+
+  # this container will run Cypress test using Firefox browser
+  e2e-firefox:
+    image: "cypress/included:8.3.1"
+    command: "--browser firefox --config video=false"
+    volumes:
+      - ./cypress:/cypress
+      - ./cypress.json:/cypress.json

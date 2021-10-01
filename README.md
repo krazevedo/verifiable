@@ -7,6 +7,8 @@
     * [Node.js](#node.js)
     * [Cypress](#install-cypress)
 - [Local Run](#local-run)
+- [Docker](#docker)
+
 
         
 ## Setup
@@ -61,5 +63,26 @@ npm run test:firefox
 ### Headless
 ```shell script
 npm run test
+``` 
+## Docker
+### Docker Image
+```shell script
+docker pull cypress/included:8.3.1  
+```
+### Chrome
+```shell script
+docker run -it -v $PWD:/cypress -w /cypress  cypress/included:8.3.1 --browser chrome
+```
+### Firefox
+```shell script
+docker run -it -v $PWD:/cypress -w /cypress  cypress/included:8.3.1 --browser firefox
+```
+### Headless
+```shell script
+docker run -it -v $PWD:/cypress -w /cypress  cypress/included:8.3.1 
+```
+### Docker compose
+```shell script
+docker-compose up
 ``` 
 

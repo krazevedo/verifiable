@@ -1,5 +1,8 @@
 {
   "scripts": {
+    "test:chrome": "cypress run --browser chrome ",
+    "test:firefox": "cypress run --browser firefox ",
+    "test": "cypress run"
   },
   "devDependencies": {
     "faker": "^5.5.3"
