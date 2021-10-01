@@ -1,0 +1,4 @@
+{
+  "defaultCommandTimeout": 50000,
+  "baseUrl": "https://discovery-staging.verifiable.com/login"
+}
