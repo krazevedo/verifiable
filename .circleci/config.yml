@@ -25,7 +25,7 @@ jobs:
             - ~/.cache
       - run:
           name: Running E2E tests 
-          command: npm run test:chrome
+          command: npm run test
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
