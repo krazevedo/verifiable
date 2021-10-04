@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "cypress": "^8.5.0",
+    "cypress-mochawesome-reporter": "^2.3.0",
     "faker": "^5.5.3"
   }
 }

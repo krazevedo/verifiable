@@ -1,4 +1,13 @@
 {
   "defaultCommandTimeout": 50000,
-  "baseUrl": "https://discovery-staging.verifiable.com/login"
+  "baseUrl": "https://discovery-staging.verifiable.com/login",
+  "reporter": "cypress-mochawesome-reporter",
+  "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "charts": true,
+    "reportPageTitle": "Verifiable Suite Test",
+    "embeddedScreenshots": true,
+    "inlineAssets": true
+  },
+  "video": false
 }

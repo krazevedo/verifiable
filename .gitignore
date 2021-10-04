@@ -23,4 +23,5 @@ cypress/.DS_Store
 node_modules
 cypress/videos/*
 cypress/screenshots/*
+cypress/reports/*
 cypress.env.json
